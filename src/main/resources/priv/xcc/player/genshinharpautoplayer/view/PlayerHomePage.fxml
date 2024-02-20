@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+
+<AnchorPane id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" stylesheets="@../css/PlayerHomePage.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="priv.xcc.player.genshinharpautoplayer.controller.PlayerHomePageController">
+   <children>
+      <JFXButton focusTraversable="false" layoutX="125.0" layoutY="386.0" onAction="#openFileChooser" prefHeight="70.0" prefWidth="150.0" text="导入文件" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="100.0" />
+      <JFXButton focusTraversable="false" layoutX="618.0" layoutY="402.0" onAction="#openMusicPlayerPage" prefHeight="70.0" prefWidth="150.0" text="播放音乐" AnchorPane.bottomAnchor="70.0" AnchorPane.rightAnchor="100.0" />
+      <Label layoutX="668.0" layoutY="136.0" prefHeight="46.0" prefWidth="314.0" text="原神风物之诗琴自动演奏">
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+   </children>
+</AnchorPane>
