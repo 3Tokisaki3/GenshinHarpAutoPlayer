@@ -1,5 +1,7 @@
 package priv.xcc.player.genshinharpautoplayer.controller;
 
+import com.github.kwhat.jnativehook.GlobalScreen;
+import com.github.kwhat.jnativehook.NativeHookException;
 import com.jfoenix.controls.JFXButton;
 import com.sun.jna.platform.win32.User32;
 import com.sun.jna.platform.win32.WinDef;
@@ -7,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.text.Text;
+import lombok.Data;
+import priv.xcc.player.genshinharpautoplayer.listener.GlobalKeyListener;
 import priv.xcc.player.genshinharpautoplayer.midi.MidiPlayer;
 import priv.xcc.player.genshinharpautoplayer.midi.thread.MusicThread;
 
@@ -15,7 +19,6 @@ import java.util.*;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author TokisakiKurumi
@@ -23,14 +26,22 @@ import java.util.concurrent.atomic.AtomicReference;
  * @date 2023/8/19
  * @description
  **/
+@Data
 public class MusicPlayerPageController {
 
     private Long time = 0L;
     private long minuteTime = 0L;
     private long secondTime = 0L;
+    private boolean isRun = false;
 
     public void initialize() {
         button.disableProperty().set(true);
+        try {
+            GlobalScreen.registerNativeHook();
+            GlobalScreen.addNativeKeyListener(new GlobalKeyListener(this));
+        } catch (NativeHookException e) {
+            e.printStackTrace();
+        }
         title.setText(music.getName().split("\\.")[0]);
         new Thread(() -> {
             MidiPlayer midiPlayer = new MidiPlayer();
@@ -73,6 +84,8 @@ public class MusicPlayerPageController {
         }).start();
     }
 
+
+
     @FXML
     Text title;
 
@@ -106,6 +119,7 @@ public class MusicPlayerPageController {
         button.getStyleClass().remove("startButton");
         button.getStyleClass().add("endButton");
         MidiPlayer.threads.forEach(MusicThread::resumeThread);
+        isRun = true;
         button.setOnAction(actionEvent -> {
             pause();
         });
@@ -115,6 +129,7 @@ public class MusicPlayerPageController {
         button.getStyleClass().remove("endButton");
         button.getStyleClass().add("startButton");
         MidiPlayer.threads.forEach(MusicThread::pauseThread);
+        isRun = false;
         button.setOnAction(actionEvent -> {
             play();
         });

@@ -1,7 +1,8 @@
 package priv.xcc.player.genshinharpautoplayer.controller;
 
+import com.github.kwhat.jnativehook.GlobalScreen;
+import com.github.kwhat.jnativehook.NativeHookException;
 import com.jfoenix.controls.JFXButton;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,16 +11,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 import priv.xcc.player.genshinharpautoplayer.MainApp;
 import priv.xcc.player.genshinharpautoplayer.midi.MidiPlayer;
-import priv.xcc.player.genshinharpautoplayer.midi.thread.MusicThread;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -115,7 +112,12 @@ public class MusicSearchPageController {
             MainApp.getStage().setOpacity(0);
             stage.setOnCloseRequest(windowEvent -> {
                 MainApp.getStage().setOpacity(1);
-                MidiPlayer.threads.forEach(t -> t.stop());
+                MidiPlayer.threads.forEach(Thread::interrupt);
+                try {
+                    GlobalScreen.unregisterNativeHook();
+                } catch (NativeHookException e) {
+                    e.printStackTrace();
+                }
             });
             stage.show();
         } catch (IOException e) {

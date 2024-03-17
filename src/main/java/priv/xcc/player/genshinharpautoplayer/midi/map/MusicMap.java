@@ -22,46 +22,46 @@ public class MusicMap {
     private static void init() {
         cMap.put("C1","Z");
 //      CEG
-        cMap.put("C#1","ZCB");
+        cMap.put("C#1","Z");
         cMap.put("D1","X");
 //        DFA
-        cMap.put("D#1","XVN");
+        cMap.put("D#1","X");
         cMap.put("E1","C");
         cMap.put("F1","V");
 //        FAC
-        cMap.put("F#1","VNZ");
+        cMap.put("F#1","V");
         cMap.put("G1","B");
 //        GBD
-        cMap.put("G#1","BMX");
+        cMap.put("G#1","B");
         cMap.put("A1","N");
 //        ACE
-        cMap.put("A#1","NZC");
+        cMap.put("A#1","N");
         cMap.put("B1","M");
 
         cMap.put("C4","A");
-        cMap.put("C#4","ADG");
+        cMap.put("C#4","A");
         cMap.put("D4","S");
-        cMap.put("D#4","SFH");
+        cMap.put("D#4","S");
         cMap.put("E4","D");
         cMap.put("F4","F");
-        cMap.put("F#4","FHA");
+        cMap.put("F#4","F");
         cMap.put("G4","G");
-        cMap.put("G#4","GJS");
+        cMap.put("G#4","G");
         cMap.put("A4","H");
-        cMap.put("A#4","HAD");
+        cMap.put("A#4","H");
         cMap.put("B4","J");
 
         cMap.put("C5","Q");
-        cMap.put("C#5","QET");
+        cMap.put("C#5","Q");
         cMap.put("D5","W");
-        cMap.put("D#5","WRY");
+        cMap.put("D#5","W");
         cMap.put("E5","E");
         cMap.put("F5","R");
-        cMap.put("F#5","RYQ");
+        cMap.put("F#5","R");
         cMap.put("G5","T");
-        cMap.put("G#5","TUW");
+        cMap.put("G#5","T");
         cMap.put("A5","Y");
-        cMap.put("A#5","YQE");
+        cMap.put("A#5","Y");
         cMap.put("B5","U");
     }
     public static List<String> convert(List<String> list) {

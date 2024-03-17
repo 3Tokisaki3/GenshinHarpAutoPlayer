@@ -26,12 +26,12 @@ public class MainApp extends Application {
     public void start(Stage Stage) throws Exception {
         System.setProperty("prism.lcdtext", "false");
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("view/PlayerHomePage.fxml"));
+        loader.setLocation(MainApp.class.getResource("view/PlayerHomePage.fxml"));
         AnchorPane homePage = loader.load();
         homeScene = new Scene(homePage);
         primaryStage.setTitle("原神风物之诗琴自动演奏器");
         primaryStage.setResizable(false);
-        primaryStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResource("image/favicon.png")).toExternalForm()));
+        primaryStage.getIcons().add(new Image(Objects.requireNonNull(MainApp.class.getResource("image/favicon.png")).toExternalForm()));
         primaryStage.setScene(homeScene);
         primaryStage.show();
     }
