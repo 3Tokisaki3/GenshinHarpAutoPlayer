@@ -112,12 +112,8 @@ public class MusicSearchPageController {
             MainApp.getStage().setOpacity(0);
             stage.setOnCloseRequest(windowEvent -> {
                 MainApp.getStage().setOpacity(1);
-                MidiPlayer.threads.forEach(Thread::interrupt);
-                try {
-                    GlobalScreen.unregisterNativeHook();
-                } catch (NativeHookException e) {
-                    e.printStackTrace();
-                }
+                MidiPlayer.threads.forEach(Thread::stop);
+                GlobalScreen.removeNativeKeyListener(MusicPlayerPageController.listener);
             });
             stage.show();
         } catch (IOException e) {

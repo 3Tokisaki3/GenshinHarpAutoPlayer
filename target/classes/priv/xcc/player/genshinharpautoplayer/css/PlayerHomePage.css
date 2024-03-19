@@ -1,0 +1,27 @@
+#root {
+    -fx-background-image: url("../image/background.png");
+    -fx-background-color: transparent;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    -fx-background-size: 100% 100%;
+}
+
+JFXButton {
+    -fx-background-color: #343247;
+    -fx-font-size: 24;
+    -fx-font-family: "Microsoft YaHei UI";
+    -fx-text-fill: #fafafa;
+    -fx-font-weight: 600;
+    -fx-opacity: 0.85;
+    -fx-text-alignment: center;
+    -fx-stroke-width: 5;
+    -fx-font-smoothing-type: lcd;
+}
+
+Label {
+    -fx-font-size: 28;
+    -fx-font-family: "Microsoft YaHei UI";
+    -fx-text-fill: #fafafa;
+    -fx-font-smoothing-type: lcd;
+    -fx-effect: dropshadow(gaussian,#992d2c,8.0,0.8,0,0);
+}

@@ -2,6 +2,7 @@ package priv.xcc.player.genshinharpautoplayer.controller;
 
 import com.github.kwhat.jnativehook.GlobalScreen;
 import com.github.kwhat.jnativehook.NativeHookException;
+import com.github.kwhat.jnativehook.keyboard.NativeKeyListener;
 import com.jfoenix.controls.JFXButton;
 import com.sun.jna.platform.win32.User32;
 import com.sun.jna.platform.win32.WinDef;
@@ -15,6 +16,7 @@ import priv.xcc.player.genshinharpautoplayer.midi.MidiPlayer;
 import priv.xcc.player.genshinharpautoplayer.midi.thread.MusicThread;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
@@ -33,15 +35,12 @@ public class MusicPlayerPageController {
     private long minuteTime = 0L;
     private long secondTime = 0L;
     private boolean isRun = false;
+    public static GlobalKeyListener listener = new GlobalKeyListener();
 
     public void initialize() {
         button.disableProperty().set(true);
-        try {
-            GlobalScreen.registerNativeHook();
-            GlobalScreen.addNativeKeyListener(new GlobalKeyListener(this));
-        } catch (NativeHookException e) {
-            e.printStackTrace();
-        }
+        listener.setController(this);
+        GlobalScreen.addNativeKeyListener(listener);
         title.setText(music.getName().split("\\.")[0]);
         new Thread(() -> {
             MidiPlayer midiPlayer = new MidiPlayer();
@@ -58,7 +57,6 @@ public class MusicPlayerPageController {
                     if ((time == 0 || time > timeMedian)) {
                         time = timeMedian;
                     }
-
                 }
             }
             time /= 1000;
@@ -83,7 +81,6 @@ public class MusicPlayerPageController {
             }, 0, 500, TimeUnit.MILLISECONDS);
         }).start();
     }
-
 
 
     @FXML

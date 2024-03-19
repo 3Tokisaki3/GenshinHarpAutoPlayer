@@ -1,5 +1,7 @@
 package priv.xcc.player.genshinharpautoplayer;
 
+import com.github.kwhat.jnativehook.GlobalScreen;
+import com.github.kwhat.jnativehook.NativeHookException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -34,6 +36,11 @@ public class MainApp extends Application {
         primaryStage.getIcons().add(new Image(Objects.requireNonNull(MainApp.class.getResource("image/favicon.png")).toExternalForm()));
         primaryStage.setScene(homeScene);
         primaryStage.show();
+        try {
+            GlobalScreen.registerNativeHook();
+        } catch (NativeHookException e) {
+            e.printStackTrace();
+        }
     }
 
     public static Stage getStage() {

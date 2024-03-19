@@ -1,0 +1,58 @@
+JFXButton {
+    -fx-background-color: #343247;
+    -fx-font-size: 22;
+    -fx-font-family: "Microsoft YaHei UI";
+    -fx-text-fill: #fafafa;
+    -fx-font-weight: 600;
+    -fx-opacity: 0.85;
+    -fx-text-alignment: center;
+    -fx-stroke-width: 5;
+    -fx-font-smoothing-type: gray;
+}
+
+TextField {
+    -fx-prompt-text-fill: #999aaa;
+    -fx-font-size: 20;
+    -fx-font-family: "Microsoft YaHei UI";
+    -fx-border-color: #bababa;
+}
+
+TextField:focused {
+    -fx-background-color: transparent,white,transparent,white ;
+    -fx-border-color: #bababa;
+}
+
+ScrollPane {
+    -fx-pref-width: 100%;
+
+}
+
+ScrollPane:focused {
+    -fx-background-color: transparent,white,transparent,white ;
+    -fx-border-color: #bababa;
+    -fx-border-width: 1 0 0 0;
+}
+
+VBox {
+    -fx-pref-width: 1000;
+}
+
+VBox .fileButton {
+    -fx-pref-width: 998;
+    -fx-font-size: 18;
+    -fx-background-color: transparent;
+    -fx-text-fill: #343247;
+    -fx-font-family: "Microsoft YaHei UI";
+    -fx-font-smoothing-type: gray;
+    -fx-border-style: solid;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: #bababa;
+}
+
+.return {
+    -fx-font-size: 22;
+    -fx-background-color: transparent;
+    -fx-text-fill: #343247;
+    -fx-font-family: "Microsoft YaHei UI";
+    -fx-font-smoothing-type: gray;
+}

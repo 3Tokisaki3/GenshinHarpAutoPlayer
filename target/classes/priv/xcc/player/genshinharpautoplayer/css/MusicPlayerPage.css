@@ -1,0 +1,50 @@
+.startButton {
+    -fx-pref-width: 70;
+    -fx-pref-height: 70;
+    -fx-border-radius: 50%;
+    -fx-background-radius: 50%;
+    -fx-background-color: rgb(157, 198, 253);
+    -fx-background-image: url("../image/play.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    -fx-background-size: 60% 60%;
+}
+
+.endButton {
+    -fx-pref-width: 70;
+    -fx-pref-height: 70;
+    -fx-border-radius: 50%;
+    -fx-background-radius: 50%;
+    -fx-background-color: rgb(157, 198, 253);
+    -fx-background-image: url("../image/pause.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    -fx-background-size: 60% 60%;
+}
+
+ProgressBar {
+    -fx-border-color: transparent;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-accent: rgb(159, 199, 242);
+}
+
+ProgressBar > .track {
+    -fx-background-color: transparent;
+}
+
+.title {
+    -fx-font-size: 22;
+    -fx-font-weight: 600;
+    -fx-fill: #343247;
+    -fx-font-family: 华文新魏;
+    -fx-font-smoothing-type: gray;
+}
+
+.time {
+    -fx-font-size: 16;
+    -fx-font-family: 华文新魏;
+    -fx-font-smoothing-type: gray;
+    -fx-fill: #343247;
+    -fx-font-weight: 700;
+}

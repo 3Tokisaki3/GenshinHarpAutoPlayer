@@ -3,6 +3,7 @@ package priv.xcc.player.genshinharpautoplayer.listener;
 import com.github.kwhat.jnativehook.keyboard.NativeKeyEvent;
 import com.github.kwhat.jnativehook.keyboard.NativeKeyListener;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import priv.xcc.player.genshinharpautoplayer.controller.MusicPlayerPageController;
 
@@ -14,6 +15,7 @@ import priv.xcc.player.genshinharpautoplayer.controller.MusicPlayerPageControlle
  **/
 @NoArgsConstructor
 @AllArgsConstructor
+@Data
 public class GlobalKeyListener implements NativeKeyListener {
     private boolean ctrlPressed = false;
 
@@ -38,9 +40,5 @@ public class GlobalKeyListener implements NativeKeyListener {
         if (e.getKeyCode() == NativeKeyEvent.VC_CONTROL) {
             ctrlPressed = false;
         }
-    }
-
-    public GlobalKeyListener(MusicPlayerPageController controller) {
-        this.controller = controller;
     }
 }
